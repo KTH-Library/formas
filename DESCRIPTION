@@ -8,7 +8,8 @@ Description: FORMAS provides daily updated open data about funded projects
     since 2006. This R package uses the open API at FORMAS to make data
     available for use from R.
 License: MIT + file LICENSE
-URL: https://github.com/KTH-Library/formas
+URL: https://github.com/KTH-Library/formas,
+    https://kth-library.github.io/formas/
 BugReports: https://github.com/KTH-Library/formas/issues
 Encoding: UTF-8
 Suggests: 
