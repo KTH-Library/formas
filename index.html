@@ -88,17 +88,8 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/KTH-Library/formas" class="external-link">formas</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     filter, lag</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
 <span></span>
 <span><span class="va">all_projects</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/formas_projects.html">formas_projects</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; All projects requested... patience during a few minutes, please...</span></span>
 <span></span>
 <span><span class="co"># total number of projects</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">all_projects</span><span class="op">)</span></span>
@@ -156,70 +147,30 @@
 <p>Details for a specific project or changes from a date can also be retrieved:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># details for one specific identifier only</span></span>
-<span><span class="fu"><a href="reference/formas_project.html">formas_project</a></span><span class="op">(</span><span class="st">"2022-00327"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/transpose.html" class="external-link">transpose</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [[1]]</span></span>
-<span><span class="co">#&gt; [[1]]$diarienummer</span></span>
-<span><span class="co">#&gt; [1] "2022-00327"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$ärenderubrik</span></span>
-<span><span class="co">#&gt; [1] "Moderna vetenskapliga metoder kan besvara en 100-årig gåta som stått i vägen för alternativa skogskötselmetoder"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$ärenderubrikEngelska</span></span>
-<span><span class="co">#&gt; [1] "Applying modern scientific methods to a century-old problem for alternative forest management"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$projektbeskrivning</span></span>
-<span><span class="co">#&gt; [1] "För att svenskt skogsbruk ska utvecklas emot mer hållbara metoder (enligt EUs New Forest Strategy 2030), så kan skötselmodellen med stora slutavverkningar, följt av markberedning of plantering, komma att förändras kraftigt. Det är väl dokumenterat att föryngringen intill hyggeskanter och kvarlämnade träd är avsevärt sämre än ute på hyggen, vilket också är ett av grundskälen till att man avverkar större ytor skog.Om policyförändringar eller nya certifieringskrav gynnar små hyggen eller alterativa skogsbruksformer, tex hyggesfritt skogsbruk, så blir kantzonspronlemet allt viktigare. Men den bakomliggande biologiska orsaken till kantzonseffekten är tyvärr inte känd, vilket hindrar utveklingen av praktiska lösningar som skulle förbättra föryngringen i alternativa skogbruksformer. I denna annsökan föreslår jag en ny hypotes för att förklara kantzonseffekten. Baserat på min egen forskning hypotetiserar jag att konkurrens om näring och undrjordiska nätverk av mykorrhizasvamp leder till den svaga föryngringen hos plantor intill stora träd. Det har visats att sammankoppling via svampmycel kan leda till att små värdväxter hålls små, medan större växtindivider premieras. I föryngringssammanhang innebär detta en svår situation för plantor i närheten av stora träd. Jag planerar en serie försök som testar hypotesen och, om den bekräftas, påbörjar arbetet att utvekla praktiska lösningar som kan förbättra föryngringen i skogskötselsystem med mindre sammanhängande kalavverkningsytor."</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$abstract</span></span>
-<span><span class="co">#&gt; [1] "The New EU Forest Strategy 2030, part of the European Green Deal, states that clear-cutting of forests “should be approached with caution” and “avoided as much as possible”. This would greatly impact Swedish forestry, where clear-cut harvest is the norm, for instance by reduced maximum clear-cut size.Forest regeneration after harvest is an important phase in rotation forestry that could face considerable challenges in this context. It is well-documented that regeneration is poor around the edge of clear-cuts and near the base of retained old trees. This is an old silvicultural problem that has been minimized by clear-felling and site preparation methods that are becoming problematic due to their negative environmental effects.The current proposal is not advocating large clear-cuts. Instead, I propose to test a new hypothesis explaining the poor seedling performance near larger trees. Based on my own scientific work, the hypothesis states that mycorrhizal fungi hold the key to belowground competition dynamics that place seedlings at a disadvantage in the proximity to large trees. It has been shown that fungal connections can lead to small plants staying small, while larger individuals benefit. I propose a project to test this hypothesis and, if confirmed, to initiate the development of silvicultural methods to improve forest regeneration in smaller clear-cuts, gap thinning or under nearby trees."</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$nyckelord</span></span>
-<span><span class="co">#&gt; [1] "Alternative forestry methods; Mycorrhizal fungi; Forest regeneration"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$scbForskningsämneKod</span></span>
-<span><span class="co">#&gt; [1] "40104; 10611"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$scbForskningsämneNamn</span></span>
-<span><span class="co">#&gt; [1] " Skogsvetenskap;  Ekologi"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$formasÄmnesområde</span></span>
-<span><span class="co">#&gt; [1] "Skogsbruk; Skogsforskning, övrigt; Ekologi"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$hållbarhetsmål</span></span>
-<span><span class="co">#&gt; [1] "15 Ekosystem och biologisk mångfald"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$diarienummerUtlysning</span></span>
-<span><span class="co">#&gt; [1] "2022-00049"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$utlysningTitel</span></span>
-<span><span class="co">#&gt; [1] "Årliga öppna utlysningen 2022"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$beviljatDatum</span></span>
-<span><span class="co">#&gt; [1] "2022-11-23T00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$projektStart</span></span>
-<span><span class="co">#&gt; [1] "2023-01-01T00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$projektSlut</span></span>
-<span><span class="co">#&gt; [1] "2027-12-31T00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$beviljatBidrag</span></span>
-<span><span class="co">#&gt; [1] 3996000</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$medelsförvaltareNamn</span></span>
-<span><span class="co">#&gt; [1] "Sveriges lantbruksuniversitet"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$medelsförvaltareOrgnr</span></span>
-<span><span class="co">#&gt; [1] "202100-2817"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$status</span></span>
-<span><span class="co">#&gt; [1] "Öppen"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$ansökansId</span></span>
-<span><span class="co">#&gt; [1] 10716608</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$senastÄndrad</span></span>
-<span><span class="co">#&gt; [1] "2022-11-23T00:00:00"</span></span>
+<span><span class="fu"><a href="reference/formas_project.html">formas_project</a></span><span class="op">(</span><span class="st">"2022-00327"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 1</span></span>
+<span><span class="co">#&gt; Columns: 21</span></span>
+<span><span class="co">#&gt; $ diarienummer          &lt;chr&gt; "2022-00327"</span></span>
+<span><span class="co">#&gt; $ ärenderubrik          &lt;chr&gt; "Moderna vetenskapliga metoder kan besvara en 10…</span></span>
+<span><span class="co">#&gt; $ ärenderubrikEngelska  &lt;chr&gt; "Applying modern scientific methods to a century…</span></span>
+<span><span class="co">#&gt; $ projektbeskrivning    &lt;chr&gt; "För att svenskt skogsbruk ska utvecklas emot me…</span></span>
+<span><span class="co">#&gt; $ abstract              &lt;chr&gt; "The New EU Forest Strategy 2030, part of the Eu…</span></span>
+<span><span class="co">#&gt; $ nyckelord             &lt;chr&gt; "Alternative forestry methods; Mycorrhizal fungi…</span></span>
+<span><span class="co">#&gt; $ scbForskningsämneKod  &lt;chr&gt; "40104; 10611"</span></span>
+<span><span class="co">#&gt; $ scbForskningsämneNamn &lt;chr&gt; " Skogsvetenskap;  Ekologi"</span></span>
+<span><span class="co">#&gt; $ formasÄmnesområde     &lt;chr&gt; "Skogsbruk; Skogsforskning, övrigt; Ekologi"</span></span>
+<span><span class="co">#&gt; $ hållbarhetsmål        &lt;chr&gt; "15 Ekosystem och biologisk mångfald"</span></span>
+<span><span class="co">#&gt; $ diarienummerUtlysning &lt;chr&gt; "2022-00049"</span></span>
+<span><span class="co">#&gt; $ utlysningTitel        &lt;chr&gt; "Årliga öppna utlysningen 2022"</span></span>
+<span><span class="co">#&gt; $ beviljatDatum         &lt;chr&gt; "2022-11-23T00:00:00"</span></span>
+<span><span class="co">#&gt; $ projektStart          &lt;chr&gt; "2023-01-01T00:00:00"</span></span>
+<span><span class="co">#&gt; $ projektSlut           &lt;chr&gt; "2027-12-31T00:00:00"</span></span>
+<span><span class="co">#&gt; $ beviljatBidrag        &lt;int&gt; 3996000</span></span>
+<span><span class="co">#&gt; $ medelsförvaltareNamn  &lt;chr&gt; "Sveriges lantbruksuniversitet"</span></span>
+<span><span class="co">#&gt; $ medelsförvaltareOrgnr &lt;chr&gt; "202100-2817"</span></span>
+<span><span class="co">#&gt; $ status                &lt;chr&gt; "Öppen"</span></span>
+<span><span class="co">#&gt; $ ansökansId            &lt;int&gt; 10716608</span></span>
+<span><span class="co">#&gt; $ senastÄndrad          &lt;chr&gt; "2022-11-23T00:00:00"</span></span>
 <span></span>
 <span><span class="co"># all changes since five days back</span></span>
 <span><span class="va">changes</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/formas_projects_since.html">formas_projects_since</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">5</span><span class="op">)</span></span>
