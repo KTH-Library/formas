@@ -39,17 +39,8 @@ This is a basic example which shows you how to get data:
 ``` r
 library(formas)
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 
 all_projects <- formas_projects()
-#> All projects requested... patience during a few minutes, please...
 
 # total number of projects
 nrow(all_projects)
@@ -83,70 +74,30 @@ retrieved:
 
 ``` r
 # details for one specific identifier only
-formas_project("2022-00327") %>% purrr::transpose()
-#> [[1]]
-#> [[1]]$diarienummer
-#> [1] "2022-00327"
-#> 
-#> [[1]]$ärenderubrik
-#> [1] "Moderna vetenskapliga metoder kan besvara en 100-årig gåta som stått i vägen för alternativa skogskötselmetoder"
-#> 
-#> [[1]]$ärenderubrikEngelska
-#> [1] "Applying modern scientific methods to a century-old problem for alternative forest management"
-#> 
-#> [[1]]$projektbeskrivning
-#> [1] "För att svenskt skogsbruk ska utvecklas emot mer hållbara metoder (enligt EUs New Forest Strategy 2030), så kan skötselmodellen med stora slutavverkningar, följt av markberedning of plantering, komma att förändras kraftigt. Det är väl dokumenterat att föryngringen intill hyggeskanter och kvarlämnade träd är avsevärt sämre än ute på hyggen, vilket också är ett av grundskälen till att man avverkar större ytor skog.Om policyförändringar eller nya certifieringskrav gynnar små hyggen eller alterativa skogsbruksformer, tex hyggesfritt skogsbruk, så blir kantzonspronlemet allt viktigare. Men den bakomliggande biologiska orsaken till kantzonseffekten är tyvärr inte känd, vilket hindrar utveklingen av praktiska lösningar som skulle förbättra föryngringen i alternativa skogbruksformer. I denna annsökan föreslår jag en ny hypotes för att förklara kantzonseffekten. Baserat på min egen forskning hypotetiserar jag att konkurrens om näring och undrjordiska nätverk av mykorrhizasvamp leder till den svaga föryngringen hos plantor intill stora träd. Det har visats att sammankoppling via svampmycel kan leda till att små värdväxter hålls små, medan större växtindivider premieras. I föryngringssammanhang innebär detta en svår situation för plantor i närheten av stora träd. Jag planerar en serie försök som testar hypotesen och, om den bekräftas, påbörjar arbetet att utvekla praktiska lösningar som kan förbättra föryngringen i skogskötselsystem med mindre sammanhängande kalavverkningsytor."
-#> 
-#> [[1]]$abstract
-#> [1] "The New EU Forest Strategy 2030, part of the European Green Deal, states that clear-cutting of forests “should be approached with caution” and “avoided as much as possible”. This would greatly impact Swedish forestry, where clear-cut harvest is the norm, for instance by reduced maximum clear-cut size.Forest regeneration after harvest is an important phase in rotation forestry that could face considerable challenges in this context. It is well-documented that regeneration is poor around the edge of clear-cuts and near the base of retained old trees. This is an old silvicultural problem that has been minimized by clear-felling and site preparation methods that are becoming problematic due to their negative environmental effects.The current proposal is not advocating large clear-cuts. Instead, I propose to test a new hypothesis explaining the poor seedling performance near larger trees. Based on my own scientific work, the hypothesis states that mycorrhizal fungi hold the key to belowground competition dynamics that place seedlings at a disadvantage in the proximity to large trees. It has been shown that fungal connections can lead to small plants staying small, while larger individuals benefit. I propose a project to test this hypothesis and, if confirmed, to initiate the development of silvicultural methods to improve forest regeneration in smaller clear-cuts, gap thinning or under nearby trees."
-#> 
-#> [[1]]$nyckelord
-#> [1] "Alternative forestry methods; Mycorrhizal fungi; Forest regeneration"
-#> 
-#> [[1]]$scbForskningsämneKod
-#> [1] "40104; 10611"
-#> 
-#> [[1]]$scbForskningsämneNamn
-#> [1] " Skogsvetenskap;  Ekologi"
-#> 
-#> [[1]]$formasÄmnesområde
-#> [1] "Skogsbruk; Skogsforskning, övrigt; Ekologi"
-#> 
-#> [[1]]$hållbarhetsmål
-#> [1] "15 Ekosystem och biologisk mångfald"
-#> 
-#> [[1]]$diarienummerUtlysning
-#> [1] "2022-00049"
-#> 
-#> [[1]]$utlysningTitel
-#> [1] "Årliga öppna utlysningen 2022"
-#> 
-#> [[1]]$beviljatDatum
-#> [1] "2022-11-23T00:00:00"
-#> 
-#> [[1]]$projektStart
-#> [1] "2023-01-01T00:00:00"
-#> 
-#> [[1]]$projektSlut
-#> [1] "2027-12-31T00:00:00"
-#> 
-#> [[1]]$beviljatBidrag
-#> [1] 3996000
-#> 
-#> [[1]]$medelsförvaltareNamn
-#> [1] "Sveriges lantbruksuniversitet"
-#> 
-#> [[1]]$medelsförvaltareOrgnr
-#> [1] "202100-2817"
-#> 
-#> [[1]]$status
-#> [1] "Öppen"
-#> 
-#> [[1]]$ansökansId
-#> [1] 10716608
-#> 
-#> [[1]]$senastÄndrad
-#> [1] "2022-11-23T00:00:00"
+formas_project("2022-00327") %>% glimpse()
+#> Rows: 1
+#> Columns: 21
+#> $ diarienummer          <chr> "2022-00327"
+#> $ ärenderubrik          <chr> "Moderna vetenskapliga metoder kan besvara en 10…
+#> $ ärenderubrikEngelska  <chr> "Applying modern scientific methods to a century…
+#> $ projektbeskrivning    <chr> "För att svenskt skogsbruk ska utvecklas emot me…
+#> $ abstract              <chr> "The New EU Forest Strategy 2030, part of the Eu…
+#> $ nyckelord             <chr> "Alternative forestry methods; Mycorrhizal fungi…
+#> $ scbForskningsämneKod  <chr> "40104; 10611"
+#> $ scbForskningsämneNamn <chr> " Skogsvetenskap;  Ekologi"
+#> $ formasÄmnesområde     <chr> "Skogsbruk; Skogsforskning, övrigt; Ekologi"
+#> $ hållbarhetsmål        <chr> "15 Ekosystem och biologisk mångfald"
+#> $ diarienummerUtlysning <chr> "2022-00049"
+#> $ utlysningTitel        <chr> "Årliga öppna utlysningen 2022"
+#> $ beviljatDatum         <chr> "2022-11-23T00:00:00"
+#> $ projektStart          <chr> "2023-01-01T00:00:00"
+#> $ projektSlut           <chr> "2027-12-31T00:00:00"
+#> $ beviljatBidrag        <int> 3996000
+#> $ medelsförvaltareNamn  <chr> "Sveriges lantbruksuniversitet"
+#> $ medelsförvaltareOrgnr <chr> "202100-2817"
+#> $ status                <chr> "Öppen"
+#> $ ansökansId            <int> 10716608
+#> $ senastÄndrad          <chr> "2022-11-23T00:00:00"
 
 # all changes since five days back
 changes <- formas_projects_since(Sys.Date() - 5)

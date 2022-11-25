@@ -37,7 +37,7 @@ install_github("formas", dependencies = TRUE)
 
 This is a basic example which shows you how to get data:
 
-```{r example}
+```{r example, message=FALSE}
 library(formas)
 library(dplyr)
 
@@ -61,7 +61,7 @@ Details for a specific project or changes from a date can also be retrieved:
 
 ```{r}
 # details for one specific identifier only
-formas_project("2022-00327") %>% purrr::transpose()
+formas_project("2022-00327") %>% glimpse()
 
 # all changes since five days back
 changes <- formas_projects_since(Sys.Date() - 5)
