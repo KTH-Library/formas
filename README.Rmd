@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/KTH-Library/formas/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/KTH-Library/formas/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of the R-package `formas` is to provide access to data from [FORMAS](https://formas.se/en/start-page.html), a Swedish government research council for sustainable development. This organization funds research and innovation, develops strategies, performs analyses and conducts evaluations. Areas of activity include the environment, agricultural sciences and spatial planning.
@@ -34,9 +35,38 @@ install_github("formas", dependencies = TRUE)
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to get data:
 
 ```{r example}
 library(formas)
-## basic example code
+library(dplyr)
+
+all_projects <- formas_projects()
+
+# total number of projects
+nrow(all_projects)
+
+# available fields
+names(all_projects)
+
+# first few rows of latest changed projects
+all_projects %>% 
+  arrange(desc(`senastÄndrad`)) %>% 
+  slice(1:3) %>% select(1:2, `senastÄndrad`, `beviljatBidrag`) %>%
+  knitr::kable()
+
 ```
+
+Details for a specific project or changes from a date can also be retrieved:
+
+```{r}
+# details for one specific identifier only
+formas_project("2022-00327") %>% purrr::transpose()
+
+# all changes since five days back
+changes <- formas_projects_since(Sys.Date() - 5)
+
+changes %>% select(1:2, `senastÄndrad`) %>% slice(1:5) %>% knitr::kable()
+
+```
+
