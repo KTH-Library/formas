@@ -19,7 +19,13 @@
     <loc>https://kth-library.github.io/formas/news/index.html</loc>
   </url>
   <url>
+    <loc>https://kth-library.github.io/formas/reference/expand_with_id.html</loc>
+  </url>
+  <url>
     <loc>https://kth-library.github.io/formas/reference/formas_fields.html</loc>
+  </url>
+  <url>
+    <loc>https://kth-library.github.io/formas/reference/formas_lookup_tables.html</loc>
   </url>
   <url>
     <loc>https://kth-library.github.io/formas/reference/formas_project.html</loc>
@@ -35,5 +41,8 @@
   </url>
   <url>
     <loc>https://kth-library.github.io/formas/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://kth-library.github.io/formas/reference/rename_fields.html</loc>
   </url>
 </urlset>
