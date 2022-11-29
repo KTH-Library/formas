@@ -60,5 +60,7 @@ non_ascii_fixer <- function(x) {
   x
 }
 
+tools::showNonASCIIfile("R/tidy-data.R")
 non_ascii_fixer("Kungliga tekniska högskolan")
+non_ascii_fixer("ÅÄÖ")
 stringi::stri_escape_unicode("➛")

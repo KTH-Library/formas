@@ -1,3 +1,5 @@
+utils::globalVariables(".")
+
 #' All projects from FORMAS
 #'
 #' This requests all available projects data from FORMAS.
@@ -9,7 +11,7 @@ formas_projects <- function() {
   route <- "https://data.formas.se/api/projekt/GetAll" %>% httr::GET()
   httr::stop_for_status(httr::status_code(route))
   projects <- route %>% httr::content(encoding = "UTF-8")
-  purrr::map_df(projects, to_tbl)
+  purrr::map_df(projects, to_tbl) %>% adjust_datatypes()
 }
 
 #' Project details given one specific identifier
@@ -53,7 +55,8 @@ replace_nulls <- function(l)
   simple_rapply(l, function(x) if (is.null(x)) NA else x)
 
 #' @importFrom dplyr as_tibble
-to_tbl <- function(x) x %>% replace_nulls() %>% dplyr::as_tibble()
+to_tbl <- function(x)
+  x %>% replace_nulls() %>% dplyr::as_tibble()
 
 #' Projects with changes since a specific date (inclusive)
 #' @param from_date a date, by default one week before the current date
@@ -67,5 +70,5 @@ formas_projects_since <- function(from_date = Sys.Date() - 7) {
   route <- "https://data.formas.se/api/projekt/getbychangeddate/%s" %>% sprintf(d) %>% httr::GET()
   httr::stop_for_status(httr::status_code(route))
   changes <- route %>% httr::content(encoding = "UTF-8")
-  changes %>% purrr::map_df(to_tbl)
+  changes %>% purrr::map_df(to_tbl) %>% adjust_datatypes()
 }
