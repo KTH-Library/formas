@@ -35,7 +35,9 @@ install_github("formas", dependencies = TRUE)
 
 ## Example
 
-This is a basic example which shows you how to get data:
+This is a basic example which shows you how to get data.
+
+### All data at once
 
 ```{r example, message=FALSE}
 library(formas)
@@ -57,6 +59,8 @@ all_projects %>%
 
 ```
 
+### Project details
+
 Details for a specific project or changes from a date can also be retrieved:
 
 ```{r}
@@ -67,6 +71,30 @@ formas_project("2022-00327") %>% glimpse()
 changes <- formas_projects_since(Sys.Date() - 5)
 
 changes %>% select(1:2, `senastÄndrad`) %>% slice(1:5) %>% knitr::kable()
+
+```
+
+### Renaming fields
+
+If you prefer to convert field names to something that better aligns with SweCRIS field names, you can try this approach:
+
+```{r}
+
+all_projects %>% rename_fields()
+
+```
+
+### Composite fields as tables
+
+Some fields contain multiple `"; "`-separated values and these can be expanded into separate lookup tables.
+
+```{r}
+tbls <- all_projects %>% formas_lookup_tables()
+
+# we here also rename the fields
+tbls %>% purrr::map(rename_fields)
+
+# at this point all_projects and tbls could be persisted to a database
 
 ```
 
