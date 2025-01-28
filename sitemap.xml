@@ -1,48 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://kth-library.github.io/formas/404.html</loc>
-  </url>
-  <url>
-    <loc>https://kth-library.github.io/formas/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://kth-library.github.io/formas/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://kth-library.github.io/formas/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://kth-library.github.io/formas/index.html</loc>
-  </url>
-  <url>
-    <loc>https://kth-library.github.io/formas/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://kth-library.github.io/formas/reference/expand_with_id.html</loc>
-  </url>
-  <url>
-    <loc>https://kth-library.github.io/formas/reference/formas_fields.html</loc>
-  </url>
-  <url>
-    <loc>https://kth-library.github.io/formas/reference/formas_lookup_tables.html</loc>
-  </url>
-  <url>
-    <loc>https://kth-library.github.io/formas/reference/formas_project.html</loc>
-  </url>
-  <url>
-    <loc>https://kth-library.github.io/formas/reference/formas_projects.html</loc>
-  </url>
-  <url>
-    <loc>https://kth-library.github.io/formas/reference/formas_projects_since.html</loc>
-  </url>
-  <url>
-    <loc>https://kth-library.github.io/formas/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://kth-library.github.io/formas/reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>https://kth-library.github.io/formas/reference/rename_fields.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://kth-library.github.io/formas/404.html</loc></url>
+<url><loc>https://kth-library.github.io/formas/LICENSE-text.html</loc></url>
+<url><loc>https://kth-library.github.io/formas/LICENSE.html</loc></url>
+<url><loc>https://kth-library.github.io/formas/authors.html</loc></url>
+<url><loc>https://kth-library.github.io/formas/index.html</loc></url>
+<url><loc>https://kth-library.github.io/formas/news/index.html</loc></url>
+<url><loc>https://kth-library.github.io/formas/reference/expand_with_id.html</loc></url>
+<url><loc>https://kth-library.github.io/formas/reference/formas_fields.html</loc></url>
+<url><loc>https://kth-library.github.io/formas/reference/formas_lookup_tables.html</loc></url>
+<url><loc>https://kth-library.github.io/formas/reference/formas_project.html</loc></url>
+<url><loc>https://kth-library.github.io/formas/reference/formas_projects.html</loc></url>
+<url><loc>https://kth-library.github.io/formas/reference/formas_projects_since.html</loc></url>
+<url><loc>https://kth-library.github.io/formas/reference/index.html</loc></url>
+<url><loc>https://kth-library.github.io/formas/reference/pipe.html</loc></url>
+<url><loc>https://kth-library.github.io/formas/reference/rename_fields.html</loc></url>
 </urlset>
+
