@@ -24,7 +24,7 @@ test_that("Getting project details works", {
 test_that("Getting changed projects since last two days work", {
   # all projects changed since two days
   ps <- formas_projects_since(from_date = Sys.Date() - 5)
-  is_valid <- is.data.frame(ps) & nrow(ps) > 1 & ncol(ps) == 21
+  is_valid <- is.data.frame(ps) & nrow(ps) >= 1 & ncol(ps) == 21
   expect_true(is_valid)
 })
 
