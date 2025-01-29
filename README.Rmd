@@ -52,9 +52,9 @@ nrow(all_projects)
 names(all_projects)
 
 # first few rows of latest changed projects
-all_projects %>% 
-  arrange(desc(`senastÄndrad`)) %>% 
-  slice(1:3) %>% select(1:2, `senastÄndrad`, `beviljatBidrag`) %>%
+all_projects |> 
+  arrange(desc(`senastÄndrad`)) |> 
+  slice(1:3) |> select(1:2, `senastÄndrad`, `beviljatBidrag`) |>
   knitr::kable()
 
 ```
@@ -65,12 +65,12 @@ Details for a specific project or changes from a date can also be retrieved:
 
 ```{r}
 # details for one specific identifier only
-formas_project("2022-00327") %>% glimpse()
+formas_project("2022-00327") |> glimpse()
 
 # all changes since five days back
 changes <- formas_projects_since(Sys.Date() - 5)
 
-changes %>% select(1:2, `senastÄndrad`) %>% slice(1:5) %>% knitr::kable()
+changes |> select(1:2, `senastÄndrad`) |> slice(1:5) |> knitr::kable()
 
 ```
 
@@ -80,7 +80,7 @@ If you prefer to convert field names to something that better aligns with SweCRI
 
 ```{r}
 
-all_projects %>% rename_fields()
+all_projects |> rename_fields()
 
 ```
 
@@ -89,10 +89,10 @@ all_projects %>% rename_fields()
 Some fields contain multiple `"; "`-separated values and these can be expanded into separate lookup tables.
 
 ```{r}
-tbls <- all_projects %>% formas_lookup_tables()
+tbls <- all_projects |> formas_lookup_tables()
 
 # we here also rename the fields
-tbls %>% purrr::map(rename_fields)
+tbls |> purrr::map(rename_fields)
 
 # at this point all_projects and tbls could be persisted to a database
 
