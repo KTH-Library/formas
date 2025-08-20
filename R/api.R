@@ -67,8 +67,12 @@ to_tbl <- function(x)
 #' @export
 formas_projects_since <- function(from_date = Sys.Date() - 7) {
   d <- lubridate::ymd(from_date)
-  route <- "https://data.formas.se/api/projekt/getbychangeddate/%s" %>% sprintf(d) %>% httr::GET()
+  route <- "https://data.formas.se/api/Projekt/getbychangeddate/%s" |> sprintf(d) |> httr::GET()
   httr::stop_for_status(httr::status_code(route))
-  changes <- route %>% httr::content(encoding = "UTF-8")
-  changes %>% purrr::map_df(to_tbl) %>% adjust_datatypes()
+  changes <- route |> httr::content(encoding = "UTF-8")
+  if (length(changes) > 0) {
+    changes |> purrr::map_df(to_tbl) |> adjust_datatypes()
+  } else {
+    tibble::tibble()
+  }
 }
