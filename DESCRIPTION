@@ -1,7 +1,7 @@
 Package: formas
 Title: FORMAS - Projects Data From A Swedish Government Research Council
     For Sustainable Development
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person("Markus", "Skyttner", , "markussk@kth.se", role = c("cre", "aut"))
 Description: FORMAS provides daily updated open data about funded projects
@@ -23,6 +23,7 @@ Imports:
     purrr,
     readr,
     readxl,
-    rlang
+    rlang,
+    tibble
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
