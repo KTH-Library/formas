@@ -1,3 +1,5 @@
+# formas 0.1.1
+
 # formas 0.1.0
 
 * Added support for renaming Swedish language field names to better align with SweCRIS field names

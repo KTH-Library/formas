@@ -64,6 +64,7 @@ to_tbl <- function(x)
 #' @importFrom lubridate ymd
 #' @importFrom httr GET status_code stop_for_status content
 #' @importFrom purrr map_df
+#' @importFrom tibble tibble
 #' @export
 formas_projects_since <- function(from_date = Sys.Date() - 7) {
   d <- lubridate::ymd(from_date)
