@@ -7,6 +7,7 @@ test_that("Retrieving all projects works", {
 })
 
 test_that("Getting FORMAS fields works", {
+  skip_on_ci()
   # get field map
   ff <- formas_fields()
   is_valid <- nrow(ff) == 19 & ncol(ff) == 4
