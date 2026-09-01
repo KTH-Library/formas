@@ -18,6 +18,7 @@ to make data available for use from R.
 You can install the development version of formas like so:
 
 ``` r
+
 library(devtools)
 install_github("formas", dependencies = TRUE)
 ```
@@ -29,6 +30,7 @@ This is a basic example which shows you how to get data.
 ### All data at once
 
 ``` r
+
 library(formas)
 library(dplyr)
 
@@ -55,11 +57,11 @@ all_projects %>%
   knitr::kable()
 ```
 
-| diarienummer | ärenderubrik                                                                                              | senastÄndrad | beviljatBidrag |
-|:-------------|:----------------------------------------------------------------------------------------------------------|:-------------|---------------:|
-| 2019-02509   | Optimering i såglinjen via djupinlärning och multi-modal avbildning                                       | 2022-11-28   |        2132000 |
-| 2017-01006   | Ligninets roll för saprotrof nedbrytning av växtmaterial och genes av organiskt material i boreala jordar | 2022-11-25   |        2992383 |
-| 2017-01596   | Modifiering av autofagi för hållbar bredspektrumresisten mot potatissjukdomar                             | 2022-11-25   |        2997999 |
+| diarienummer | ärenderubrik | senastÄndrad | beviljatBidrag |
+|:---|:---|:---|---:|
+| 2019-02509 | Optimering i såglinjen via djupinlärning och multi-modal avbildning | 2022-11-28 | 2132000 |
+| 2017-01006 | Ligninets roll för saprotrof nedbrytning av växtmaterial och genes av organiskt material i boreala jordar | 2022-11-25 | 2992383 |
+| 2017-01596 | Modifiering av autofagi för hållbar bredspektrumresisten mot potatissjukdomar | 2022-11-25 | 2997999 |
 
 ### Project details
 
@@ -67,6 +69,7 @@ Details for a specific project or changes from a date can also be
 retrieved:
 
 ``` r
+
 # details for one specific identifier only
 formas_project("2022-00327") %>% glimpse()
 #> Rows: 1
@@ -99,13 +102,13 @@ changes <- formas_projects_since(Sys.Date() - 5)
 changes %>% select(1:2, `senastÄndrad`) %>% slice(1:5) %>% knitr::kable()
 ```
 
-| diarienummer | ärenderubrik                                                                                                     | senastÄndrad |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------|:-------------|
-| 2017-01006   | Ligninets roll för saprotrof nedbrytning av växtmaterial och genes av organiskt material i boreala jordar        | 2022-11-25   |
-| 2017-01596   | Modifiering av autofagi för hållbar bredspektrumresisten mot potatissjukdomar                                    | 2022-11-25   |
-| 2018-00442   | En undersökning av styrelseformer genom ’landgrabbing’ av jordbruksmark                                          | 2022-11-25   |
-| 2018-00682   | Ökar inomarts mångfald resiliens av ålgräsängar till klimatförändringar och fluktuationer?                       | 2022-11-25   |
-| 2018-00812   | Vattenkvalitet påverkar vattenbrist - inverkan av färskvattnets försaltning på vattenbrist i globala torrområden | 2022-11-25   |
+| diarienummer | ärenderubrik | senastÄndrad |
+|:---|:---|:---|
+| 2017-01006 | Ligninets roll för saprotrof nedbrytning av växtmaterial och genes av organiskt material i boreala jordar | 2022-11-25 |
+| 2017-01596 | Modifiering av autofagi för hållbar bredspektrumresisten mot potatissjukdomar | 2022-11-25 |
+| 2018-00442 | En undersökning av styrelseformer genom ’landgrabbing’ av jordbruksmark | 2022-11-25 |
+| 2018-00682 | Ökar inomarts mångfald resiliens av ålgräsängar till klimatförändringar och fluktuationer? | 2022-11-25 |
+| 2018-00812 | Vattenkvalitet påverkar vattenbrist - inverkan av färskvattnets försaltning på vattenbrist i globala torrområden | 2022-11-25 |
 
 ### Renaming fields
 
@@ -113,6 +116,7 @@ If you prefer to convert field names to something that better aligns
 with SweCRIS field names, you can try this approach:
 
 ``` r
+
 
 all_projects %>% rename_fields()
 #> # A tibble: 7,074 × 21
@@ -142,6 +146,7 @@ Some fields contain multiple `"; "`-separated values and these can be
 expanded into separate lookup tables.
 
 ``` r
+
 tbls <- all_projects %>% formas_lookup_tables()
 
 # we here also rename the fields
